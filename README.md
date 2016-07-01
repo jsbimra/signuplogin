@@ -1,4 +1,4 @@
-# Loan Singh Lender Portal
+# Login Sign up flow in modal window
 
 
 Steps to make this repository work locally on your system follow the steps below:
