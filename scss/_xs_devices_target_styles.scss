@@ -1,0 +1,19 @@
+
+/* ==========================================================================
+   iPhone 6 and below mobile devices media query
+   ========================================================================== */
+@media screen and (min-width: 320px) and (max-width: 736px){
+    .login-signup-modal {
+        .modal-dialog {
+            width: 95%;
+        }
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 736px) and (orientation: landscape){
+    .login-signup-modal {
+        .modal-dialog {
+            width: 96.5%;
+        }
+    }
+}

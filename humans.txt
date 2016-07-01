@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+    <Krishna> -- <Frontend Developer> -- <jatinderbimra>
+    <Nijitha> -- <Frontend Developer> -- <krishnateli>
+    <Jatinder> -- <Frontend Developer> -- <nijithasukhoor>
+
+# THANKS
+
+    <HTML5, CSS3, ANGULARJS, JQUERY, JAVASCRIPT>
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Apache Server Configs, jQuery, Modernizr, Normalize.css

@@ -1,0 +1,757 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,body{
+    color: #222;
+    font-size: 14px;
+    font-family: 'signikaregular', 'Trebuchet MS', arial;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   Body 
+   ========================================================================== */
+body{
+}
+
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {border: 0; margin: 0; padding: 0;}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {resize:none;}
+
+a:focus{outline: 0;}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* SCSS Variables */
+$modalButtonHeight: 42px;
+$layoutWidth : 960px;
+
+
+/*Colors variables */
+$lsLinkColor: #ee3224;
+$lsLinkHoverColor: #bf0d00; 
+$lsNormalTextColor: #707473;
+$timerTextColor : grey;
+$linkDisabledColor: #a2a0a0;
+
+
+/* Extend for page content transition */
+@mixin commonTransition($secs){
+    -webkit-transition: $secs linear;
+    -moz-transition:    $secs linear;
+    transition: $secs linear;
+}
+
+/* Extend error class for styling error messages */
+
+@mixin formGroupMsg{
+    font-size: 13px;
+    margin-top: -10px;
+}
+
+
+a{color:$lsLinkColor; text-decoration: none;}
+a:hover{color:$lsLinkColor; }
+
+h1,h2,h3,h4,h5{font-family: 'signikabold', 'Trebuchet MS', arial;}
+
+.center-layout{@include commonTransition(0.2s); width: $layoutWidth; margin: 0 auto; padding-left: 0px; padding-right: 0px;}
+/*.banner-image{background: url(../img/banner-bg.png) center top no-repeat;}*/
+.main-wrapper{padding: 0;/*width:$layoutWidth;*/}
+
+.section-wrappers{ 
+    @extend .center-layout;  
+    @include commonTransition(0.2s);
+    clear: both;
+
+}
+.modal.in .modal-dialog {
+    margin-top: 35px;
+}
+
+/* mixin inset box shadow */
+.insetBoxShadowThinner{    
+    -webkit-box-shadow: inset 0px 0px 2px 1px rgba(232, 232, 232, 0.63);
+    box-shadow: inset 0px 0px 2px 1px rgba(232, 232, 232, 0.63);
+}
+
+/* mixin input field box shadow */
+.shadowInputControl{
+    -webkit-box-shadow: inset 0px 0px 2px 1px rgba(232, 232, 232, 0.63);
+    box-shadow: inset inset 0px 0px 2px 1px rgba(232, 232, 232, 0.63);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+/* ==========================================================================
+   Phone call fixed widget
+   ========================================================================== */
+.fixedPhoneCallWidget{position: fixed; right: 0; top: 40%; z-index: 50;}
+
+
+/* ==========================================================================
+   Top-band
+   ========================================================================== */
+.top-band {float:left; height: 10px;}
+.top-band.dark-blue{background-color: #005fb0; width:40%;}
+.top-band.sky-blue{background-color: #4d95d2; width:50%;}
+.top-band.grey{background-color: #a6a6a6; width:10%;}
+
+/* ==========================================================================
+   Header styles
+   ========================================================================== */
+header{
+
+    min-height: 100px; 
+    overflow: hidden;
+    width: 100%;
+    z-index: 10;
+
+    font-family: 'Trebuchet MS', arial, verdana; 
+    
+    .logo{
+        color:#004784; 
+        font-size: 60px; 
+        font-weight: bold;
+        line-height: 44px;
+        margin:0 0 0 32px;
+        margin-top:25px;
+        padding: 0; 
+
+        a{color: inherit;}
+        a:hover{text-decoration:none;}
+    }
+
+    .login-signup-wrap{
+        margin-top:33px;
+        margin-right:73px;
+        font-size: 20px;
+        color:#8d8d8d;
+
+        .separator{display: inline-block; line-height: 100%; font-size: inherit; margin: 0 6px;}
+
+        a{
+            font-size: inherit;
+            color: inherit;
+        }
+        a:hover, a:focus, a:active{text-decoration: none;}
+    }
+
+}
+
+/* ==========================================================================
+   Navbar styles
+   ========================================================================== */
+.navbar-default {
+    background: rgba(0,55,102,.9); 
+    padding:0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+
+    .navbar-header{
+        float: right;
+        .navbar-toggle {
+            border-color: #bfe2ff;
+            border-right-width: 2px;
+
+            &:hover, &:focus{background:transparent;}
+
+            .icon-bar {
+                background-color: #fff;
+            }
+        }
+    }
+
+    .navbar-collapse{padding: 0; /* width: $layoutWidth; margin: 0 auto;*/}
+
+    .navbar-nav{
+        &>li{
+
+            &>a{
+                border-radius: 0;
+                border-right: 2px solid #bfe2ff;
+                color:#bfe2ff;
+                font-family: 'Trebuchet MS', arial;
+                font-weight: normal;
+                font-size: 18px;
+                letter-spacing: 1px;
+                padding: 0 45px 0 30px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            &:last-child > a{border-right: none;}
+            &>a:hover, &>a:focus{ color: #fff;}
+       }
+   }
+   .login-navbar-nav{
+        &>li{
+            &>a{padding: 0 10px; font-size: 15px; display: inline-block;}
+        }
+   }
+}
+
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+form label{font-size: 16px; color:#333233;}
+
+.form-group{
+    margin-bottom: 16px; 
+    overflow: hidden; /* Also creating block element context */
+
+    .error-msg{
+        color: #ee3224;
+        @include formGroupMsg;
+    }
+    .success-msg{
+        color: #3e793f;
+        @include formGroupMsg;
+    }
+} 
+
+.form-control{margin-bottom: 16px;}
+
+.form-horizontal{
+    .column{padding-right: 8px; padding-left: 0px;}
+
+    label{
+        display: block; 
+        color: #fff; 
+        font-size: 18px; 
+        font-weight: normal;
+        font-family: 'Trebuchet MS', arial;
+        margin-bottom: 3px;
+    }
+    .form-control{margin-right: 8px;}
+
+    option{padding: 0;}
+
+    .input-group{
+        .form-control{border-right-width: 0;}
+    }
+    .input-group-addon{border-color:#82add2; padding: 6px 8px 6px 0; background-color: #ebebeb;}
+
+}
+
+/* ==========================================================================
+   App Content Area
+   ========================================================================== */
+.app-content{
+    /* negative margin to handle left & right to gradient image*/
+
+
+    .app-content-inner__child{
+
+    }
+}
+
+
+
+/* ==========================================================================
+   login-signup-modal
+   ========================================================================== */
+.login-signup-modal{
+    .modal-close-icon{
+        position: absolute;
+        top:5px;
+        right: 25px;
+        font-size: 35px;
+        z-index: 1;
+        cursor: pointer;
+    }
+    .modal-dialog {
+        position: relative;
+        /*top:50%;*/
+        width: 73%;
+        margin: 0 auto;
+    }
+
+    .modal-body{padding: 0;}
+
+    .modal-content{
+        font-size: 16px;
+        font-weight: 500;
+
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background-color: $lsLinkColor;
+        border-radius: 0;
+        border: none;
+    }
+
+    /* Left column and Right column styles */
+    .l-col, .r-col{padding: 20px 25px;}
+
+    .l-col{
+        text-align: center;
+        color: #fff;
+        padding-left: 55px;
+        padding-right: 55px;
+
+        .mustache-img{margin-top: 78px; margin-bottom: 56px;}
+
+        .desc{
+            line-height: normal;
+            margin-bottom: 55px;
+        }
+
+        & ul {
+            width:60%;
+            margin-left:0;
+
+            &>li {
+                text-align: left;
+                margin-bottom: 25px;
+            }
+        }
+    }
+    .r-col{background-color: #fff; float: right; min-height: 502px; /*border-radius: 0 6px 6px 0;*/}
+
+    .modal-form-section {
+
+        .tab-container{
+            & tab-content a {
+                color:$lsLinkColor;
+            }
+        }
+        
+        .non-tab-container{
+            color: #333233;
+            padding: 60px 17px 30px;
+
+            h4{
+                margin-bottom: 30px;
+                font-size: 18px; 
+                font-family: 'signikabold', 'Trebuchet MS', 'arial';}
+
+            .inline-text{
+                margin-bottom: 54px;
+                padding-right: 80px;
+            }
+
+            .only-msg-panel{
+                /* excluding padding left and right of non-tab-container and its parent */
+                padding-left: 50px;
+                padding-right: 50px;
+
+                /* excluding padding top of non-tab-container and its parent */
+                padding-top: 47px;
+
+                p{
+                    margin-bottom: 25px;
+                }
+            }
+        }
+
+        form{
+            color:#333233;
+            font: {
+                size: 16px;
+            };
+        }
+
+        .form-group-otp{
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            clear: both;
+        }
+    }
+
+    .cancel-link{
+        font-size: 21px;
+        font-family: 'signikasemibold', 'Trebuchet MS', 'arial';
+        text-decoration: underline;
+        color: #303030;
+        margin-right: 36px;
+        line-height: $modalButtonHeight;
+    }
+
+    .login-btn{min-width: 180px;}
+
+    /*Tab styling*/
+    .nav-tabs>li{
+        &.active>a,
+        &.active>a:focus,
+        &.active>a:hover{
+            color:#333233;
+            border-color: #bdbdbd;
+            border-bottom: 0;
+            border-top: 4px solid #E73023;
+
+            
+             @extend .insetBoxShadowThinner;
+        }
+
+        &.active>a:after {
+            content: ' ';
+            width: 97%;
+            left: 0;
+            height: 8px;
+            z-index: 55;
+            background: #fff;
+            border: 0;
+            margin: 0 2px;
+            bottom: -5px;
+            position: absolute;
+        }
+    }
+
+    .tab-content{
+        color:$lsNormalTextColor;
+        border:1px solid #bdbdbd;
+        border-top: none;
+        padding: 35px 20px 20px;
+
+        @extend .insetBoxShadowThinner;
+    }
+
+    .links-box {
+        padding-bottom: 0;
+        color: $lsNormalTextColor;
+
+        & a{
+            color:$lsNormalTextColor;
+        }
+    }
+
+    .terms-block{
+        margin-top: 35px;
+
+        & a {
+            color: $lsLinkColor;
+        }
+    }
+
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.page-footer{
+    padding: 15px 0 22px;
+    text-align: center;
+    font-style: italic;
+    color: #00325d;
+    
+    a{
+        color: #00325d;
+    }
+} /* footer end */
+
+
+
+
+/* ==========================================================================
+   Bootstrap Tabs default overwrites
+   ========================================================================== */
+.nav-tabs{
+    border-bottom-color: #bdbdbd;
+
+    &>li>a{
+        color: $lsNormalTextColor;
+        font-size: 16px;
+        padding: 10px 29px;
+        margin-right: 0;
+        border-radius: 5px 5px 0 0;
+    }
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{color: #272626;}
+
+.nav-tabs>li>a:hover{background: transparent; border-color: transparent;}
+
+/*, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{}*/
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*Turn of input number spinners */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+em{ color:#525252; 
+    font-size: 13px; 
+    font-family: 'Trebuchet MS', arial;
+    display: inline-block;
+}
+
+.timer-text{color: $timerTextColor; margin:0 5px; display: inline-block;}
+
+.noMar{margin: 0 !important;}
+.noTMar{margin-top: 0 !important;}
+.noLRMar{margin-left: 0 !important; margin-right: 0 !important;}
+.noPad{padding: 0 !important;}
+.noTPad{padding-top: 0 !important;}
+.noLRPad{padding-left: 0 !important; padding-right: 0 !important;}
+
+.form-control{
+    background-color: #ebebeb;
+    color: #8a8c8c;
+    padding: 6px 12px;
+    height: 48px;
+
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border-color:  rgba(232, 232, 232, 1);
+    border-radius: 2px;
+
+    @extend .shadowInputControl;
+}
+.form-control:focus {
+    border-color:  rgba(232, 232, 232, 1);
+    outline: 0;
+
+    @extend .shadowInputControl;
+
+}
+
+a.disabled, a[disabled]{
+    opacity: .85;
+    cursor: default;
+    color: $linkDisabledColor;
+    text-decoration: none;
+}
+
+/*.btn.disabled, .btn[disabled], fieldset[disabled] .btn{
+    opacity: .85;
+}*/
+
+/*.btn{text-transform: uppercase;}*/
+.btn{ @include commonTransition(.1s);}
+.btn:hover, button:hover,
+.btn:focus, button:focus,
+.btn:active, button:active{
+    outline: none; 
+    font-weight: bold;  
+    color:#1f1e1e;
+    background-color: #fff;
+    border:1px solid #1f1e1e;
+
+    -moz-transform: scale(1.05); 
+    -webkit-transform: scale(1.05); 
+    transform: scale(1.05); }
+
+.btn[disabled]:hover, button[disabled]:hover,
+.btn[disabled]:focus, button[disabled]:focus,
+.btn[disabled]:active, button[disabled]:active{
+    outline: none; 
+    font-weight: normal;  
+    color:#fff;
+    background-color: #1f1e1e;
+
+    -moz-transform: scale(1); 
+    -webkit-transform: scale(1); 
+    transform: scale(1); }
+
+.btn-sm{padding:6px 18px; font-size: 16px; }
+.btn-lg{border-radius: 4px; padding:6px 16px;}
+.btn-primary{background-color: #005fb0; color:#fff;}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #055294;
+    border-color: #03437B;
+}
+.textarea{height: 67px;}
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.no-bg{background: none !important;}
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {clear: both;}
+
+
+/* ==========================================================================
+   Buttons Styling
+   ========================================================================== */
+.btn-modal-big{
+    background-color: #303030;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 11px 25px;
+    min-width: 142px;
+
+    /*&:hover, &:focus{
+        color:#fff;
+    }*/
+}
+
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+@import "_xs_devices_target_styles";
+
+@import "_sm_devices_target_styles";
+
+
+/* ==========================================================================
+   iPad and till max size of 1024 mobile devices media query
+   ========================================================================== */
+@media screen and (min-width: 740px) and (max-width: 1024px){
+   
+}
