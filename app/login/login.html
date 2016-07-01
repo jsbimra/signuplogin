@@ -1,0 +1,231 @@
+<div class="modal fade in login-signup-modal" id="loginSignupModal">
+    <div class="modal-dialog">
+        <div class="modal-content clearfix">
+            <div class="modal-body">
+                <span class="modal-close-icon">
+                    <i class="fa fa-times font_2em" data-dismiss="modal" aria-hidden="true"></i>
+                </span>
+                <div class="col-md-5 l-col hidden-sm hidden-xs">
+                    <img src="../img/loansingh-mustache.png" alt="loansingh-mustache" class="mustache-img" />
+                    <p class="desc text-left">Looking to get higher returns on small lendings? Register with i-lend and offer loans to individual creditworthy borrowers at attractive interest rates!</p>
+                    <ul>
+                        <!-- <li>Frictionless Process</li> -->
+                        <li>Friction Less</li>
+                        <li>Update text here</li>
+                        <li>Update text here</li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-7 r-col">
+                    <div class="modal-form-section">
+                        <div class="tab-container" ng-hide="loginCtrl.nonTabActive">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" target="_self" ng-href="#login-tab" ng-click="loginCtrl.resetForm('signup')">Log in</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" target="_self" ng-href="#signup-tab" ng-click="loginCtrl.resetForm('login')">Sign Up</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content ">
+                                <div id="login-tab" class="tab-pane fade active in">
+                                    <form name="loginCtrl.frmLogin" id="loginCtrl.frmLogin" novalidate>
+                                        <div class="form-group">
+                                            <label for="txtUserMobileOrEmail">Enter your Mobile or Email</label>
+                                            <input type="text" id="txtUserMobileOrEmail" name="txtUserMobileOrEmail" ng-model="loginCtrl.user.mobOrEmail" class="form-control"  autofocus required autocomplete="off"
+                                            ng-pattern="loginCtrl.regexMobileEmail" />
+                                            
+
+                                            <div class="text-danger error-msg" ng-messages="loginCtrl.frmLogin.$submitted && loginCtrl.frmLogin.txtUserMobileOrEmail.$error">
+                                                <div ng-message="required">Please enter mobile no or email address</div>
+                                                <div ng-message="pattern">Please enter 10 digit number or valid email address</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="txtPassword">Loan Singh Password</label>
+                                            <input type="password" id="txtPassword" name="txtPassword" ng-model="loginCtrl.user.password" class="form-control"  autofocus required />
+                                            
+                                            <div class="text-danger error-msg" ng-messages="loginCtrl.frmLogin.$submitted && loginCtrl.frmLogin.txtPassword.$error">
+                                                <div ng-message="required">Please enter password</div>
+                                            </div>
+                                        
+                                            <div class="clearfix">
+                                                <p class="pull-right links-box">
+                                                    <a href ng-click="loginCtrl.forgotPwdTrigger();">Forgot Password ? </a>
+                                                    <span class="hide"> / <a href ng-click="loginCtrl.createNewPwdTrigger();">Create a new password</a></span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-center center-block"><button class="btn btn-modal-big login-btn text-uppercase" type="submit" ng-disabled="loginCtrl.frmLogin.$submitted && loginCtrl.frmLogin.$invalid" ng-click="loginCtrl.submitLogin(loginCtrl.submitLogin)">Login</button></div>
+
+                                    </form> <!-- /. login-form end -->
+
+                                    <div class="clearfix"></div>
+                                </div> <!-- /. login tab end -->
+
+                                <div id="signup-tab" class="tab-pane">
+                                    <form name="loginCtrl.frmSignup" id="loginCtrl.frmSignup" id="signup-form" ng-submit="loginCtrl.submitSignup(loginCtrl.frmSignup)" novalidate ng-hide="loginCtrl.showSignupOTPPanel">
+                                        <div class="form-group">
+                                            <label for="txtSignupMobileNo">Mobile number</label>
+                                            <input type="number" min="0" name="txtSignupMobileNo" id="txtSignupMobileNo" ng-model="loginCtrl.modSignup.mobileno" class="form-control" ng-maxlength="10" ng-minlength="10" required autocomplete="off" />
+
+                                            <div class="text-danger error-msg" ng-messages="loginCtrl.frmSignup.$submitted && loginCtrl.frmSignup.txtSignupMobileNo.$error">
+                                                <div ng-message="required">Please enter mobile number</div>
+                                                <div ng-message="number">Only digits allowed</div>
+                                                <div ng-message="minlength">Minimum 10 digit numbers only</div>
+                                                <div ng-message="maxlength">Maximum 10 digit numbers only</div>
+                                            </div>
+                                        </div>                                    
+                                        <div class="form-group">
+                                            <label for="txtSignupEmailId">Email ID</label>
+                                            <input type="email" name="txtSignupEmailId" id="txtSignupEmailId" ng-model="loginCtrl.modSignup.email" class="form-control" required />
+
+                                            <div class="text-danger error-msg" ng-messages="loginCtrl.frmSignup.$submitted && loginCtrl.frmSignup.txtSignupEmailId.$error">
+                                                <div ng-message="required">Please enter email id</div>
+                                                <div ng-message="email">Please enter valid email id</div>
+                                            </div>
+                                        </div>
+
+                                       <!--  <div class="form-group">
+                                            <label>Loan Singh Password</label>
+                                            <input type="password" name="txtSignupPassword" id="txtSignupPassword" ng-model="loginCtrl.modSignup.password" class="form-control" required />
+
+                                            <div class="text-danger error-msg" ng-messages="loginCtrl.frmSignup.$submitted && loginCtrl.frmSignup.txtSignupPassword.$error">
+                                                <div ng-message="required">Please enter password</div>
+                                            </div>
+                                        </div> -->
+
+                                        <div class="text-center center-block">
+                                            <button type="submit" class="btn btn-modal-big" id="btnCreateAccount" ng-click="" ng-disabled="loginCtrl.frmSignup.$submitted && loginCtrl.frmSignup.$invalid">Create your loan singh Account</button>
+                                        </div>
+                                    </form> <!-- /. signup-form end -->
+
+                                    <form name="loginCtrl.frmSignupOTP" ng-show="loginCtrl.showSignupOTPPanel" novalidate>
+                                        <p class="policy-text" ng-hide="loginCtrl.changeOTPMobileField" ng-submit="loginCtrl.signupOTPVerify(loginCtrl.frmSignupOTP)">Enter One Time Password(OTP) sent to your mobile number {{loginCtrl.modSignup.mobileno}} or <a href ng-click="loginCtrl.changeMobileNoTrigger();">change your mobile number</a></p>
+
+                                        <div class="form-group" ng-show="loginCtrl.changeOTPMobileField">
+                                            <label for="txtOTPMobileNo">Mobile number</label>
+                                            <input type="number" name="txtOTPMobileNo" id="txtOTPMobileNo" class="form-control" ng-model="loginCtrl.modSignup.mobileno" required ng-maxlength="10" ng-minlength="10" />
+
+                                            <div class="text-danger error-msg" ng-messages="loginCtrl.frmSignupOTP.$submitted && loginCtrl.frmSignupOTP.txtOTPMobileNo.$error">
+                                                <div ng-message="required">Please enter mobile number</div>
+                                                <div ng-message="number">Only digits allowed</div>
+                                                <div ng-message="minlength">Minimum 10 digit numbers only</div>
+                                                <div ng-message="maxlength">Maximum 10 digit numbers only</div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group form-group-otp">
+                                            <label for="txtSignupOTP">OTP</label>
+                                            <input type="password" name="txtSignupOTP" id="txtSignupOTP" class="form-control text-center" ng-model="loginCtrl.modSignupOTP" required placeholder="- - - -" maxlength="4" ng-minlength="4" />
+
+                                            <div class="text-danger error-msg" ng-messages="loginCtrl.frmSignupOTP.$submitted && loginCtrl.frmSignupOTP.txtSignupOTP.$error">
+                                                <div ng-message="required">Please enter OTP</div>
+                                                <div ng-message="minlength">Minimum 4 digits allowed</div>
+                                            </div>
+
+                                            <div class="error-msg" ng-show="loginCtrl.invalidOTPMsgFlag && loginCtrl.frmSignupOTP.$submitted" ng-hide="loginCtrl.frmSignupOTP.$invalid || loginCtrl.modSignupOTP">Invalid OTP entered (default is 1234 for testing, Try it.)</div>
+                                            
+                                            <div class="success-msg" ng-show="loginCtrl.modSignupOTP == loginCtrl.tempOTP">Valid OTP</div>
+
+                                        </div>
+
+                                        <div class="form-group center-block text-center" ng-show="loginCtrl.showSignupResendOTPPanel">
+                                            <span class="timer-text">0:<span  ng-bind="loginCtrl.OTPTimer"></span></span> <a href 
+                                            ng-click="loginCtrl.OTPTimer !== 0 || loginCtrl.resendSignupOTP();" ng-disabled="loginCtrl.OTPTimer !== 0">Resend OTP</a>
+                                        </div>
+
+                                        <div class="text-center center-block">
+                                            <button type="submit" class="btn btn-modal-big" ng-disabled="loginCtrl.frmSignupOTP.$submitted && loginCtrl.frmSignupOTP.$invalid" ng-click="loginCtrl.signupOTPVerify(loginCtrl.frmSignupOTP)">Verify</button>
+                                        </div>
+                                    </form><!-- /. signup OTP verify form end -->
+
+                                </div> <!-- /. signup tab end -->
+
+                                
+                                <div class="terms-block text-center" ng-hide="loginCtrl.showSignupOTPPanel">
+                                    By Signing up you agree to our <a href="javascript:void(0)">T&C</a> and <a href="javascript:void(0)">Privacy Policy</a>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div> <!-- /. tab-content end -->
+                        </div> <!-- /. tab-container end -->
+
+                        <div class="non-tab-container hide" ng-class="{'show' : loginCtrl.nonTabActive}">
+                            
+                            <form name="frmForgotPassword" class="forgot-password-panel" ng-show="loginCtrl.showForgotPwdPanel">
+                                <h4>Forgot Password ?</h4>
+                                <p class="inline-text">We will send a link on your registered email to reset your password.</p>
+                                <div class="form-group">
+                                    <label>Enter your Email</label>
+                                    <input type="email" class="form-control" />
+                                </div>
+                                <div class="clearfix">
+                                    <button type="button" class="btn btn-modal-big pull-right">Reset Password</button>
+                                    <a href ng-click="loginCtrl.backToLoginScreen()" class="pull-right cancel-link">Cancel</a>
+                                </div>
+                            </form> <!-- /. forgot password form end -->
+
+                            <form name="loginCtrl.frmCreateNewPassword" class="create-new-password-panel" ng-show="loginCtrl.showCreateNewPwdPanel" novalidate>
+                                <h4>Create New Password</h4>
+                                <div class="form-group">
+                                    <label for="txtCreateNewPwd">New Password</label>
+                                    <input type="password" class="form-control" name="txtCreateNewPwd" id="txtCreateNewPwd" ng-model="loginCtrl.createPassword.newPassword" required />
+                                    
+                                    <div class="text-danger error-msg" ng-messages="loginCtrl.frmCreateNewPassword.$submitted && loginCtrl.frmCreateNewPassword.txtCreateNewPwd.$error">
+                                        <div ng-message="required">Please enter new password</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtCreateConfirmNewPwd">Confirm New Password</label>
+                                    <input type="password" class="form-control" name="txtCreateConfirmNewPwd" id="txtCreateConfirmNewPwd" ng-model="loginCtrl.createPassword.confirmPassword" required match="loginCtrl.createPassword.newPassword" />
+
+                                    <div class="text-danger error-msg" ng-messages="loginCtrl.frmCreateNewPassword.$submitted && loginCtrl.frmCreateNewPassword.txtCreateConfirmNewPwd.$error">
+                                        <div ng-message="required">Please enter new password</div>
+                                        <div ng-message="match">Password does not matched</div>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                    <button type="submit" class="btn btn-modal-big pull-right" ng-disabled="loginCtrl.frmCreateNewPassword.$submitted && loginCtrl.frmCreateNewPassword.$invalid">Login</button>
+                                    <!-- <a href ng-click="loginCtrl.backToLoginScreen();" class="cancel-link pull-right">Cancel</a> -->
+                                </div>
+                            </form> <!-- /. forgot password form end -->
+                          
+
+                            <div class="only-msg-panel" ng-show="loginCtrl.showVerifyEmailPanel">
+                                <h4>Please Verify your email</h4>
+                                <p>We have sent you an email verification link to your mailbox. Please click on verify your account  link. <a href ng-click="loginCtrl.changeEmailIDTrigger()">change email ID</a></p>
+
+                                <form name="loginCtrl.frmChangeEmailId" novalidate ng-show="loginCtrl.showChangeEmailIdPanel" ng-if="loginCtrl.successEmailIdFlag === false">
+                                    <div class="form-group">
+                                        <label for="txtChangeEmailId">Email ID</label>
+                                        <input type="email" name="txtChangeEmailId" id="txtChangeEmailId" ng-model="loginCtrl.modSignup.email" class="form-control" required />
+
+                                        <div class="text-danger error-msg" ng-messages="loginCtrl.frmChangeEmailId.$submitted && loginCtrl.frmChangeEmailId.txtChangeEmailId.$error">
+                                            <div ng-message="required">Please enter email id</div>
+                                            <div ng-message="email">Please enter valid email id</div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix">
+                                        <button type="submit" class="btn btn-modal-big" ng-click="loginCtrl.submitChangeEmailId(loginCtrl.frmChangeEmailId)">Save</button>
+                                    </div>
+                                </form>
+
+                                <div ng-hide="loginCtrl.showChangeEmailIdPanel">
+                                    <button type="button" class="btn btn-modal-big" ng-click="loginCtrl.resendEmailAddress(loginCtrl.modSignup.email)">Resend Email</button>
+                                </div>
+
+                                <p class="clearfix"></p>
+                                <div class="alert alert-success" ng-show="loginCtrl.successEmailIdFlag">Email address updated successfully.</div>
+
+                            </div> <!-- /. verify signup email panel end -->   
+                        </div>  <!-- /. non-tab-container end -->
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

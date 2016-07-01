@@ -1,0 +1,33 @@
+<div class="app app-header-fixed">
+
+    <ng-include src="'app/layout/header.html'" onload=""></ng-include>
+    <!-- header -->
+</div>
+
+<div class="container main-wrapper" role="main">
+
+        <ng-outlet></ng-outlet>
+   
+</div><!-- container -->
+
+
+<!-- for sub section/child components -->
+ <div class="app-section">
+    <article class="app-content">
+        <div class="app-content-inner__child clearfix">
+            MAIN CONTENT
+        </div><!-- app-content-inner__child end -->
+    </article><!-- app-content end -->
+</div><!-- app-section -->
+
+        
+<!-- footer -->
+<footer id="footer" class="app-footer" role="footer">
+    <div class="wrapper b-t bg-light">
+        <span><a href ui-scroll="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span> &copy; 2016 LoanSingh.
+    </div>
+</footer>
+
+<!-- Login modal for sign in -->
+<login-component></login-component>
+

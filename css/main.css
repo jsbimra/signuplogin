@@ -1,0 +1,666 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html, body {
+  color: #222;
+  font-size: 14px;
+  font-family: 'signikaregular', 'Trebuchet MS', arial;
+  line-height: 1.4; }
+
+/* ==========================================================================
+   Body 
+   ========================================================================== */
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle; }
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: none; }
+
+a:focus {
+  outline: 0; }
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0; }
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* SCSS Variables */
+/*Colors variables */
+/* Extend for page content transition */
+/* Extend error class for styling error messages */
+a {
+  color: #ee3224;
+  text-decoration: none; }
+
+a:hover {
+  color: #ee3224; }
+
+h1, h2, h3, h4, h5 {
+  font-family: 'signikabold', 'Trebuchet MS', arial; }
+
+.center-layout, .section-wrappers {
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  transition: 0.2s linear;
+  width: 960px;
+  margin: 0 auto;
+  padding-left: 0px;
+  padding-right: 0px; }
+
+/*.banner-image{background: url(../img/banner-bg.png) center top no-repeat;}*/
+.main-wrapper {
+  padding: 0;
+  /*width:$layoutWidth;*/ }
+
+.section-wrappers {
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  transition: 0.2s linear;
+  clear: both; }
+
+.modal.in .modal-dialog {
+  margin-top: 35px; }
+
+/* mixin inset box shadow */
+.insetBoxShadowThinner, .login-signup-modal .nav-tabs > li.active > a, .login-signup-modal .nav-tabs > li.active > a:focus, .login-signup-modal .nav-tabs > li.active > a:hover, .login-signup-modal .tab-content {
+  -webkit-box-shadow: inset 0px 0px 2px 1px rgba(232, 232, 232, 0.63);
+  box-shadow: inset 0px 0px 2px 1px rgba(232, 232, 232, 0.63); }
+
+/* mixin input field box shadow */
+.shadowInputControl, .form-control, .form-control:focus {
+  -webkit-box-shadow: inset 0px 0px 2px 1px rgba(232, 232, 232, 0.63);
+  box-shadow: inset inset 0px 0px 2px 1px rgba(232, 232, 232, 0.63);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
+
+/* ==========================================================================
+   Phone call fixed widget
+   ========================================================================== */
+.fixedPhoneCallWidget {
+  position: fixed;
+  right: 0;
+  top: 40%;
+  z-index: 50; }
+
+/* ==========================================================================
+   Top-band
+   ========================================================================== */
+.top-band {
+  float: left;
+  height: 10px; }
+
+.top-band.dark-blue {
+  background-color: #005fb0;
+  width: 40%; }
+
+.top-band.sky-blue {
+  background-color: #4d95d2;
+  width: 50%; }
+
+.top-band.grey {
+  background-color: #a6a6a6;
+  width: 10%; }
+
+/* ==========================================================================
+   Header styles
+   ========================================================================== */
+header {
+  min-height: 100px;
+  overflow: hidden;
+  width: 100%;
+  z-index: 10;
+  font-family: 'Trebuchet MS', arial, verdana; }
+  header .logo {
+    color: #004784;
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 44px;
+    margin: 0 0 0 32px;
+    margin-top: 25px;
+    padding: 0; }
+    header .logo a {
+      color: inherit; }
+    header .logo a:hover {
+      text-decoration: none; }
+  header .login-signup-wrap {
+    margin-top: 33px;
+    margin-right: 73px;
+    font-size: 20px;
+    color: #8d8d8d; }
+    header .login-signup-wrap .separator {
+      display: inline-block;
+      line-height: 100%;
+      font-size: inherit;
+      margin: 0 6px; }
+    header .login-signup-wrap a {
+      font-size: inherit;
+      color: inherit; }
+    header .login-signup-wrap a:hover, header .login-signup-wrap a:focus, header .login-signup-wrap a:active {
+      text-decoration: none; }
+
+/* ==========================================================================
+   Navbar styles
+   ========================================================================== */
+.navbar-default {
+  background: rgba(0, 55, 102, 0.9);
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  text-align: center;
+  position: relative;
+  z-index: 5; }
+  .navbar-default .navbar-header {
+    float: right; }
+    .navbar-default .navbar-header .navbar-toggle {
+      border-color: #bfe2ff;
+      border-right-width: 2px; }
+      .navbar-default .navbar-header .navbar-toggle:hover, .navbar-default .navbar-header .navbar-toggle:focus {
+        background: transparent; }
+      .navbar-default .navbar-header .navbar-toggle .icon-bar {
+        background-color: #fff; }
+  .navbar-default .navbar-collapse {
+    padding: 0;
+    /* width: $layoutWidth; margin: 0 auto;*/ }
+  .navbar-default .navbar-nav > li > a {
+    border-radius: 0;
+    border-right: 2px solid #bfe2ff;
+    color: #bfe2ff;
+    font-family: 'Trebuchet MS', arial;
+    font-weight: normal;
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding: 0 45px 0 30px;
+    margin-top: 15px;
+    margin-bottom: 15px; }
+  .navbar-default .navbar-nav > li:last-child > a {
+    border-right: none; }
+  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #fff; }
+  .navbar-default .login-navbar-nav > li > a {
+    padding: 0 10px;
+    font-size: 15px;
+    display: inline-block; }
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+form label {
+  font-size: 16px;
+  color: #333233; }
+
+.form-group {
+  margin-bottom: 16px;
+  overflow: hidden;
+  /* Also creating block element context */ }
+  .form-group .error-msg {
+    color: #ee3224;
+    font-size: 13px;
+    margin-top: -10px; }
+  .form-group .success-msg {
+    color: #3e793f;
+    font-size: 13px;
+    margin-top: -10px; }
+
+.form-control {
+  margin-bottom: 16px; }
+
+.form-horizontal .column {
+  padding-right: 8px;
+  padding-left: 0px; }
+.form-horizontal label {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: 'Trebuchet MS', arial;
+  margin-bottom: 3px; }
+.form-horizontal .form-control {
+  margin-right: 8px; }
+.form-horizontal option {
+  padding: 0; }
+.form-horizontal .input-group .form-control {
+  border-right-width: 0; }
+.form-horizontal .input-group-addon {
+  border-color: #82add2;
+  padding: 6px 8px 6px 0;
+  background-color: #ebebeb; }
+
+/* ==========================================================================
+   App Content Area
+   ========================================================================== */
+.app-content {
+  /* negative margin to handle left & right to gradient image*/ }
+
+/* ==========================================================================
+   login-signup-modal
+   ========================================================================== */
+.login-signup-modal {
+  /* Left column and Right column styles */
+  /*Tab styling*/ }
+  .login-signup-modal .modal-close-icon {
+    position: absolute;
+    top: 5px;
+    right: 25px;
+    font-size: 35px;
+    z-index: 1;
+    cursor: pointer; }
+  .login-signup-modal .modal-dialog {
+    position: relative;
+    /*top:50%;*/
+    width: 73%;
+    margin: 0 auto; }
+  .login-signup-modal .modal-body {
+    padding: 0; }
+  .login-signup-modal .modal-content {
+    font-size: 16px;
+    font-weight: 500;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #ee3224;
+    border-radius: 0;
+    border: none; }
+  .login-signup-modal .l-col, .login-signup-modal .r-col {
+    padding: 20px 25px; }
+  .login-signup-modal .l-col {
+    text-align: center;
+    color: #fff;
+    padding-left: 55px;
+    padding-right: 55px; }
+    .login-signup-modal .l-col .mustache-img {
+      margin-top: 78px;
+      margin-bottom: 56px; }
+    .login-signup-modal .l-col .desc {
+      line-height: normal;
+      margin-bottom: 55px; }
+    .login-signup-modal .l-col ul {
+      width: 60%;
+      margin-left: 0; }
+      .login-signup-modal .l-col ul > li {
+        text-align: left;
+        margin-bottom: 25px; }
+  .login-signup-modal .r-col {
+    background-color: #fff;
+    float: right;
+    min-height: 502px;
+    /*border-radius: 0 6px 6px 0;*/ }
+  .login-signup-modal .modal-form-section .tab-container tab-content a {
+    color: #ee3224; }
+  .login-signup-modal .modal-form-section .non-tab-container {
+    color: #333233;
+    padding: 60px 17px 30px; }
+    .login-signup-modal .modal-form-section .non-tab-container h4 {
+      margin-bottom: 30px;
+      font-size: 18px;
+      font-family: 'signikabold', 'Trebuchet MS', 'arial'; }
+    .login-signup-modal .modal-form-section .non-tab-container .inline-text {
+      margin-bottom: 54px;
+      padding-right: 80px; }
+    .login-signup-modal .modal-form-section .non-tab-container .only-msg-panel {
+      /* excluding padding left and right of non-tab-container and its parent */
+      padding-left: 50px;
+      padding-right: 50px;
+      /* excluding padding top of non-tab-container and its parent */
+      padding-top: 47px; }
+      .login-signup-modal .modal-form-section .non-tab-container .only-msg-panel p {
+        margin-bottom: 25px; }
+  .login-signup-modal .modal-form-section form {
+    color: #333233;
+    font-size: 16px; }
+  .login-signup-modal .modal-form-section .form-group-otp {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both; }
+  .login-signup-modal .cancel-link {
+    font-size: 21px;
+    font-family: 'signikasemibold', 'Trebuchet MS', 'arial';
+    text-decoration: underline;
+    color: #303030;
+    margin-right: 36px;
+    line-height: 42px; }
+  .login-signup-modal .login-btn {
+    min-width: 180px; }
+  .login-signup-modal .nav-tabs > li.active > a, .login-signup-modal .nav-tabs > li.active > a:focus, .login-signup-modal .nav-tabs > li.active > a:hover {
+    color: #333233;
+    border-color: #bdbdbd;
+    border-bottom: 0;
+    border-top: 4px solid #E73023; }
+  .login-signup-modal .nav-tabs > li.active > a:after {
+    content: ' ';
+    width: 97%;
+    left: 0;
+    height: 8px;
+    z-index: 55;
+    background: #fff;
+    border: 0;
+    margin: 0 2px;
+    bottom: -5px;
+    position: absolute; }
+  .login-signup-modal .tab-content {
+    color: #707473;
+    border: 1px solid #bdbdbd;
+    border-top: none;
+    padding: 35px 20px 20px; }
+  .login-signup-modal .links-box {
+    padding-bottom: 0;
+    color: #707473; }
+    .login-signup-modal .links-box a {
+      color: #707473; }
+  .login-signup-modal .terms-block {
+    margin-top: 35px; }
+    .login-signup-modal .terms-block a {
+      color: #ee3224; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.page-footer {
+  padding: 15px 0 22px;
+  text-align: center;
+  font-style: italic;
+  color: #00325d; }
+  .page-footer a {
+    color: #00325d; }
+
+/* footer end */
+/* ==========================================================================
+   Bootstrap Tabs default overwrites
+   ========================================================================== */
+.nav-tabs {
+  border-bottom-color: #bdbdbd; }
+  .nav-tabs > li > a {
+    color: #707473;
+    font-size: 16px;
+    padding: 10px 29px;
+    margin-right: 0;
+    border-radius: 5px 5px 0 0; }
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+  color: #272626; }
+
+.nav-tabs > li > a:hover {
+  background: transparent;
+  border-color: transparent; }
+
+/*, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{}*/
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*Turn of input number spinners */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */ }
+
+em {
+  color: #525252;
+  font-size: 13px;
+  font-family: 'Trebuchet MS', arial;
+  display: inline-block; }
+
+.timer-text {
+  color: grey;
+  margin: 0 5px;
+  display: inline-block; }
+
+.noMar {
+  margin: 0 !important; }
+
+.noTMar {
+  margin-top: 0 !important; }
+
+.noLRMar {
+  margin-left: 0 !important;
+  margin-right: 0 !important; }
+
+.noPad {
+  padding: 0 !important; }
+
+.noTPad {
+  padding-top: 0 !important; }
+
+.noLRPad {
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
+
+.form-control {
+  background-color: #ebebeb;
+  color: #8a8c8c;
+  padding: 6px 12px;
+  height: 48px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border-color: #e8e8e8;
+  border-radius: 2px; }
+
+.form-control:focus {
+  border-color: #e8e8e8;
+  outline: 0; }
+
+a.disabled, a[disabled] {
+  opacity: .85;
+  cursor: default;
+  color: #a2a0a0;
+  text-decoration: none; }
+
+/*.btn.disabled, .btn[disabled], fieldset[disabled] .btn{
+    opacity: .85;
+}*/
+/*.btn{text-transform: uppercase;}*/
+.btn {
+  -webkit-transition: 0.1s linear;
+  -moz-transition: 0.1s linear;
+  transition: 0.1s linear; }
+
+.btn:hover, button:hover,
+.btn:focus, button:focus,
+.btn:active, button:active {
+  outline: none;
+  font-weight: bold;
+  color: #1f1e1e;
+  background-color: #fff;
+  border: 1px solid #1f1e1e;
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05); }
+
+.btn[disabled]:hover, button[disabled]:hover,
+.btn[disabled]:focus, button[disabled]:focus,
+.btn[disabled]:active, button[disabled]:active {
+  outline: none;
+  font-weight: normal;
+  color: #fff;
+  background-color: #1f1e1e;
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1); }
+
+.btn-sm {
+  padding: 6px 18px;
+  font-size: 16px; }
+
+.btn-lg {
+  border-radius: 4px;
+  padding: 6px 16px; }
+
+.btn-primary {
+  background-color: #005fb0;
+  color: #fff; }
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #055294;
+  border-color: #03437B; }
+
+.textarea {
+  height: 67px; }
+
+/*
+ * Hide visually and from screen readers
+ */
+.no-bg {
+  background: none !important; }
+
+.hidden {
+  display: none !important; }
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+  visibility: hidden; }
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.clearfix:after {
+  clear: both; }
+
+/* ==========================================================================
+   Buttons Styling
+   ========================================================================== */
+.btn-modal-big {
+  background-color: #303030;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 11px 25px;
+  min-width: 142px;
+  /*&:hover, &:focus{
+      color:#fff;
+  }*/ }
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+/* ==========================================================================
+   iPhone 6 and below mobile devices media query
+   ========================================================================== */
+@media screen and (min-width: 320px) and (max-width: 736px) {
+  .login-signup-modal .modal-dialog {
+    width: 95%; } }
+@media screen and (min-width: 320px) and (max-width: 736px) and (orientation: landscape) {
+  .login-signup-modal .modal-dialog {
+    width: 96.5%; } }
+/* ==========================================================================
+   iPhone 5 and below mobile devices media query for 320x480 viewport devices
+   Right after iPhone 6 media queries
+   ========================================================================== */
+/* ==========================================================================
+   iPad and till max size of 1024 mobile devices media query
+   ========================================================================== */
+
+/*# sourceMappingURL=main.css.map */
